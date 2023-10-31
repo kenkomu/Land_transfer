@@ -1,5 +1,5 @@
 use near_sdk::store::Vector;
-use near_sdk::{ near_bindgen, env };
+use near_sdk::{near_bindgen, env, AccountId};
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 
 #[near_bindgen]
@@ -59,6 +59,7 @@ pub struct PropertyRating {
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct Property {
     pub id: i32,
+    pub owner:AccountId,
     pub is_available:bool,
     pub title: String,
     pub description: String,

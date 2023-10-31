@@ -2,7 +2,7 @@ mod models;
 
 // Find all our documentation at https://docs.near.org
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
-use near_sdk::{env, log, near_bindgen};
+use near_sdk::{AccountId, env, log, near_bindgen};
 use near_sdk::store::Vector;
 use models::user::User;
 use models::property::{Property, PropertyLocation, PropertyMedia, PropertyRating};
@@ -14,6 +14,10 @@ const ACCOUNT_BLOCKED: &str = "account blocked";
 const ACCOUNT_NOT_FOUND: &str = "account not found";
 const EMAIL_NOT_FOUND: &str = "email not found in system";
 const ACCOUNT_WRONG_PASSWORD: &str = "account wrong password";
+const ACCOUNT_NOT_OWNER: &str = "account does not own property";
+const ACCOUNT_TARGET_DOES_NOT_EXIST: &str = "account target does not exist";
+const ACCOUNT_FROM_DOES_NOT_EXIST: &str = "from account does not exist";
+const PROPERTY_DOES_NOT_EXIST: &str = "from account does not exist";
 
 // Define the contract structure
 #[near_bindgen]
@@ -68,6 +72,67 @@ impl PropertySystem {
 
         };
         self.users.push(user);
+    }
+
+    pub fn transfer_property_using_account(&mut self, property_id :i32, from_account_str : String, to_account_str: String) ->  String {
+
+        let from_account = AccountId::new_unchecked(from_account_str);
+        let to_account = AccountId::new_unchecked(to_account_str);
+
+    //check if account exist
+        let from_user = self.users.iter().find(|item| item.account == from_account);
+        if from_user == None{
+            return  ACCOUNT_FROM_DOES_NOT_EXIST.to_string()
+        }
+        let to_user = self.users.iter().find(|item| item.account == to_account);
+        if to_user == None{
+            return  ACCOUNT_TARGET_DOES_NOT_EXIST.to_string()
+        }
+        // check property exists
+        let property_for_transfer =  self.property.iter().find(|item| item.id ==property_id);
+        if property_for_transfer == None{
+            return PROPERTY_DOES_NOT_EXIST.to_string()
+        }
+
+        return self.transfer_property(from_user.unwrap(),to_user.unwrap(),property_id)
+    }
+    pub fn transfer_property_using_email(&mut self, property_id :i32, from_email : String, to_email: String) ->  String {
+// check if from and to email exist
+
+        let from_user = self.users.iter().find(|item| item.email == from_email);
+        if from_user == None{
+            return  ACCOUNT_FROM_DOES_NOT_EXIST.to_string()
+        }
+        let to_user = self.users.iter().find(|item| item.email == to_email);
+        if to_user == None{
+            return  ACCOUNT_TARGET_DOES_NOT_EXIST.to_string()
+        }
+        // check property exists
+        let property_for_transfer =  self.property.iter().find(|item| item.id ==property_id);
+        if property_for_transfer == None{
+            return PROPERTY_DOES_NOT_EXIST.to_string()
+        }
+
+       return self.transfer_property(from_user.unwrap(),to_user.unwrap(),property_id)
+
+
+    }
+    fn transfer_property(&mut self, from_account : &User, to_user : &User, property_id:i32 ) -> String {
+        // change the property owner
+        let mut new_property_data : Vector<Property>  = Vector::new(b"r".to_vec());
+        for property_item in self.property {
+            if property_item.id == property_id {
+                let mut property_item_duplicate = property_item;
+                property_item_duplicate.owner = &to_user.unwrap().account;
+                new_property_data.push(property_item_duplicate);
+            }else {
+                new_property_data.push(property_item)
+            }
+        }
+
+        self.property = new_property_data;
+
+        return OKAY.to_string();
     }
 
     // Public method - returns all the users
@@ -141,6 +206,7 @@ impl PropertySystem {
             long,
         };
         let property_item = Property {
+            owner: env::current_account_id(),
             id: (self.property.len() + 1) as i32,
             is_available,
             title,
@@ -170,7 +236,6 @@ mod tests {
     fn add_then_get_property() {
         let mut contract = PropertySystem::default();
         contract.add_property(
-
            true, // is_available: bool,
             "My jumbo system".to_string(),// title: String,
            "5 bedroom mansion in Ruiru bypass".to_string(), // description: String,
@@ -196,9 +261,6 @@ mod tests {
             contract.get_property_available().len(),
             1
         );
-
-
-
     }
 
     #[test]
