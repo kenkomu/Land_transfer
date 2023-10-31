@@ -23,48 +23,49 @@ pub enum PropertyStatus {
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct PropertyContactInformation {
-    user_id:i32,
-    name: String,
-    username: String,
-    email: String,
-    phone: String,
+    pub user_id:i32,
+    pub  name: String,
+    pub  username: String,
+    pub  email: String,
+    pub  phone: String,
 }
 
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct PropertyLocation {
-    address: String,
-    city: String,
-    state: String,
-    county: String,
-    lat: f32,
-    long: f32,
+    pub address: String,
+    pub city: String,
+    pub state: String,
+    pub county: String,
+    pub lat: f32,
+    pub long: f32,
 }
 
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct PropertyMedia {
-    id: i32,
-    url: String,
+    pub  id: i32,
+    pub url: String,
 }
 
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct PropertyRating {
-    rating:f32,
-    user_id:i32
+    pub rating:f32,
+    pub  user_id:i32
 }
 
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct Property {
-    id: i32,
-    title: String,
-    description: String,
-    status: PropertyStatus,
-    price: i32,
-    area: i32,
-    contact_information : PropertyContactInformation,
-    location: PropertyLocation,
-    rating: Vector<PropertyRating>
+    pub id: i32,
+    pub is_available:bool,
+    pub title: String,
+    pub description: String,
+    pub status: PropertyStatus,
+    pub price: i32,
+    pub area: i32,
+    pub contact_information : PropertyContactInformation,
+    pub location: PropertyLocation,
+    pub rating: Vector<PropertyRating>
 }
