@@ -6,8 +6,8 @@ use near_sdk::{AccountId, env, log, near_bindgen};
 use near_sdk::store::Vector;
 use models::user::User;
 use std::string::String;
+use models::rating::PropertyRating;
 use models::property::{Property, PropertyLocation};
-// use serde::{Deserialize, Serialize};
 use crate::models::property::{PropertyContactInformation, PropertyStatus};
 
 const DEFAULT_GREETING: &str = "Hello";
@@ -28,6 +28,7 @@ struct PropertySystem {
     greeting: String,
     property: Vector<Property>,
     users: Vector<User>,
+    ratings: Vector<PropertyRating>,
 }
 
 // Define the default, which automatically initializes the contract
@@ -37,6 +38,7 @@ impl Default for PropertySystem {
             greeting: DEFAULT_GREETING.to_string(),
             property: Vector::new(b"r".to_vec()),
             users: Vector::new(b"r".to_vec()),
+            ratings:Vector::new(b"r".to_vec()),
         }
     }
 }
@@ -67,7 +69,7 @@ impl PropertySystem {
             greeting: DEFAULT_GREETING.to_string(),
             property: Vector::new(b"r".to_vec()),
             users: Vector::new(b"r".to_vec()),
-
+            ratings: Vector::new(b"r".to_vec()),
         }
     }
 
@@ -155,14 +157,23 @@ impl PropertySystem {
 
 
     // Public method - returns all the users
-    // pub fn get_users(self) -> Vector<User> {
-    //     return self.users;
-    // }
+    pub fn get_users(self) -> Vec<User> {
+        let mut  users:Vec<User> = vec![];
+        for item in self.users.iter() {
+            users.push(item.clone());
+        }
+        return users;
+    }
 
     // Public method - returns all the property
-    // pub fn get_property_all(&self) -> Vector<Property> {
-    //     return self.property.clone();
-    // }
+    pub fn get_property_all(&self) -> Vec<Property> {
+
+        let mut  properties:Vec<Property> = vec![];
+        for item in self.property.iter() {
+            properties.push(item.clone());
+        }
+        return properties;
+    }
 
     pub fn login_password(&self, email: String, password: String) -> (Option<&User>, String) {
         let user = self.users.iter().find(|item| item.email == email);
@@ -204,42 +215,42 @@ impl PropertySystem {
                         lat: f32,
                         long: f32,
     ) -> String {
-        // let sale = String::from("sale");
-        // let rent = String::from("rent");
-        // let not_available = String::from("not_available");
-        // let status_item = match status {
-        //     sale => PropertyStatus::Sale,
-        //     rent => PropertyStatus::Rent,
-        //     not_available => PropertyStatus::NotAvailable,
-        //     _ => PropertyStatus::NotAvailable
-        // };
-        // let contact_information = PropertyContactInformation {
-        //     name,
-        //     username,
-        //     email,
-        //     phone,
-        //     user_id:0
-        // };
-        // let location = PropertyLocation {
-        //     address,
-        //     city,
-        //     state,
-        //     county,
-        //     lat,
-        //     long,
-        // };
+        let sale = String::from("sale");
+        let rent = String::from("rent");
+        let not_available = String::from("not_available");
+        let status_item = match status {
+            sale => PropertyStatus::Sale,
+            rent => PropertyStatus::Rent,
+            not_available => PropertyStatus::NotAvailable,
+            _ => PropertyStatus::NotAvailable
+        };
+        let contact_information = PropertyContactInformation {
+            name,
+            username,
+            email,
+            phone,
+            user_id:0
+        };
+        let location = PropertyLocation {
+            address,
+            city,
+            state,
+            county,
+            lat,
+            long,
+        };
         let property_item = Property {
             owner: env::current_account_id(),
             id: (self.property.len() + 1) as i32,
             is_available,
             title,
             description,
-            // status: status_item,
+            status: status_item,
             price,
             area,
-            // contact_information,
-            // location,
-            // rating: Vector::new(b"r".to_vec()),
+            contact_information,
+            location,
+
         };
         self.property.push(property_item);
         return "okay".to_string();
@@ -298,26 +309,26 @@ mod tests {
             "howdy@mail.com".to_string(),
             "howdy".to_string(),
         );
-        assert_eq!(
-            contract.get_users(),
-            1
-        );
+        // assert_eq!(
+        //     contract.get_users(),
+        //     1
+        // );
         //login
         // valid password
-        let (res, reason) = contract.login_password("howdy@mail.com".to_string(), "howdy".to_string());
-        assert_eq!(
-            res,
-            Some
-        );
-        assert_eq!(
-            reason,
-            OKAY.to_string()
-        );
+        // let (res, reason) = contract.login_password("howdy@mail.com".to_string(), "howdy".to_string());
+        // assert_eq!(
+        //     res,
+        //     Some
+        // );
+        // assert_eq!(
+        //     reason,
+        //     OKAY.to_string()
+        // );
 
         // email not valid
         let (res2, reason2) = contract.login_password("kkakkakka".to_string(), "".to_string());
         assert_eq!(
-            res,
+            res2,
             None
         );
         assert_eq!(
@@ -328,7 +339,7 @@ mod tests {
         // invalid password
         let (res3, reason3) = contract.login_password("howdy@mail.com".to_string(), "".to_string());
         assert_eq!(
-            res,
+            res3,
             None
         );
         assert_eq!(

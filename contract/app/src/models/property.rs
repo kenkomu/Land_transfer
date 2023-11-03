@@ -1,10 +1,10 @@
-use near_sdk::store::Vector;
 use near_sdk::{near_bindgen, AccountId, env};
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
+use near_sdk::collections::Vector;
 use near_sdk::serde::{Deserialize, Serialize};
 
 #[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
+#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub enum PropertyType {
     House,
@@ -12,11 +12,10 @@ pub enum PropertyType {
     Apartment,
     Lot,
     Garage,
-
 }
 
 #[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
+#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub enum PropertyStatus {
     Sale,
@@ -25,7 +24,7 @@ pub enum PropertyStatus {
 }
 
 #[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
+#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub struct PropertyContactInformation {
     pub user_id: i32,
@@ -36,7 +35,7 @@ pub struct PropertyContactInformation {
 }
 
 #[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
+#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub struct PropertyLocation {
     pub address: String,
@@ -48,23 +47,17 @@ pub struct PropertyLocation {
 }
 
 #[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
+#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub struct PropertyMedia {
     pub id: i32,
     pub url: String,
 }
 
-#[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
-#[serde(crate = "near_sdk::serde")]
-pub struct PropertyRating {
-    pub rating: f32,
-    pub user_id: i32,
-}
+
 
 #[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
+#[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub struct Property {
     pub id: i32,
@@ -72,12 +65,12 @@ pub struct Property {
     pub is_available: bool,
     pub title: String,
     pub description: String,
-    // pub status: PropertyStatus,
+    pub status: PropertyStatus,
     pub price: i32,
     pub area: i32,
-    // pub contact_information : PropertyContactInformation,
-    // pub location: PropertyLocation,
-    // pub rating: Vector<PropertyRating>
+    pub contact_information: PropertyContactInformation,
+    pub location: PropertyLocation,
+
 }
 
 impl Default for Property {
@@ -88,9 +81,25 @@ impl Default for Property {
             is_available: false,
             title: "".to_string(),
             description: "".to_string(),
-            //   status: PropertyStatus,
+            status: PropertyStatus::NotAvailable,
             price: 0,
             area: 0,
+
+            contact_information: PropertyContactInformation {
+                name: "".to_string(),
+                email: "".to_string(),
+                phone: "".to_string(),
+                user_id: 0,
+                username: "".to_string(),
+            },
+            location: PropertyLocation {
+                address: "".to_string(),
+                city: "".to_string(),
+                lat: 0.0,
+                long: 0.0,
+                county: "".to_string(),
+                state: "".to_string(),
+            },
         }
     }
 }
