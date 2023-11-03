@@ -9,3 +9,11 @@ G
 contract/app/src/lib.rs,c/a/ca904264e7e899ddb96cbe1158160d1ae182e30b
 C
 contract/.gitignore,0/8/083ff209c57cb156efafab3eb7b3d3c42144d99c
+N
+contract/app/src/models/mod.rs,5/e/5e94ef3a8c6b3cd6a74841aaf8db202f31ee1a7d
+O
+contract/app/src/models/user.rs,a/0/a063057ec1607c39a133744129a83bd0ae4f5758
+S
+#contract/app/src/models/property.rs,c/a/caaa54b9180560b5c3205b3b985ecfe8eabfb2d1
+?
+contract/doc.md,0/c/0cd0fc6be34f587746298f3e4958811bf04c8490

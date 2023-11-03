@@ -8,7 +8,7 @@ The smart contract exposes the following methods(with the parameters)
    `(property_id :i32, from_account_str : String, to_account_str: String)`
 3. transfer_property_using_account<br/>
    `(property_id :i32, from_account_str : String, to_account_str: String)`
-4. transfer_property_using_account<br/>
+4. transfer_property_using_email<br/>
    `( property_id :i32, from_email : String, to_email: String)`
 5. get_users<br/>
    `no params`
@@ -17,6 +17,7 @@ The smart contract exposes the following methods(with the parameters)
 7. login_password <br/>
    `email: String, password: String`
 8. get_property_available <br/>
+   `no params`
 9. add_property
    `(is_available: bool,   title: String,   description: String, 
    status: String,   price: i32,   area: i32,   name: String,
