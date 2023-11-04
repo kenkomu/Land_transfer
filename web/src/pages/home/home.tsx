@@ -1,5 +1,5 @@
-import type {Component} from 'solid-js';
-import {useNavigate} from "@solidjs/router";
+import type { Component } from 'solid-js';
+import { useNavigate } from "@solidjs/router";
 
 //         <div>
 // home  <button onClick={(e)=>{
@@ -32,41 +32,39 @@ const Home: Component = () => {
                                 {/* Logo */}
                                 <div id="logo">
                                     <a href="index.html"><img src="images/logo-white-1.svg"
-                                                              data-sticky-logo="images/logo-white-1.svg" alt=""/></a>
+                                        data-sticky-logo="images/logo-white-1.svg" alt="" /></a>
                                 </div>
                                 {/* Mobile Navigation */}
                                 <div class="mmenu-trigger">
                                     <button class="hamburger hamburger--collapse" type="button">
-                                            <span class="hamburger-box">
-                                                <span class="hamburger-inner"></span>
-                                            </span>
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
                                     </button>
                                 </div>
                                 {/* Main Navigation */}
                                 <nav id="navigation" class="style-1 black">
                                     <ul id="responsive">
-                                        <ul>
-                                            <li>
-                                                <a href="index-13.html#">Home</a>
 
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <a href="index-13.html#">Property</a>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <a href="index-13.html#">Buyer</a>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <a href="index-13.html#">Seller</a>
-                                            </li>
-                                        </ul>
+                                        <li>
+                                            <a href="index-13.html#">Home</a>
 
+                                        </li>
+
+
+                                        <li>
+                                            <a href="index-13.html#">Property</a>
+                                        </li>
+
+
+                                        <li>
+                                            <a href="index-13.html#">Buyer</a>
+                                        </li>
+
+
+                                        <li>
+                                            <a href="index-13.html#">Seller</a>
+                                        </li>
 
                                     </ul>
                                 </nav>
@@ -135,12 +133,12 @@ const Home: Component = () => {
                                                                     </li>
                                                                     <li>
                                                                         <i class="fa fa-object-group"
-                                                                           aria-hidden="true"></i>
+                                                                            aria-hidden="true"></i>
                                                                         <span>50 by 100</span>
                                                                     </li>
                                                                     <li>
                                                                         <i class="fas fa-warehouse"
-                                                                           aria-hidden="true"></i>
+                                                                            aria-hidden="true"></i>
                                                                         <span>24/7 security</span>
                                                                     </li>
                                                                 </ul>
@@ -167,12 +165,12 @@ const Home: Component = () => {
                                                                     </li>
                                                                     <li>
                                                                         <i class="fa fa-object-group"
-                                                                           aria-hidden="true"></i>
+                                                                            aria-hidden="true"></i>
                                                                         <span>50 by 100</span>
                                                                     </li>
                                                                     <li>
                                                                         <i class="fas fa-warehouse"
-                                                                           aria-hidden="true"></i>
+                                                                            aria-hidden="true"></i>
                                                                         <span>24/7 security</span>
                                                                     </li>
                                                                 </ul>
@@ -197,7 +195,7 @@ const Home: Component = () => {
                                                         <div class="swiper_contbox">
                                                             <div class="swipper_conntent">
                                                                 <img src="images/slider/img2.jpg" class="img-fluid "
-                                                                     alt="images"/>
+                                                                    alt="images" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -205,7 +203,7 @@ const Home: Component = () => {
                                                         <div class="swiper_contbox">
                                                             <div class="swipper_conntent">
                                                                 <img src="images/slider/img1.jpg" class="img-fluid"
-                                                                     alt="images"/>
+                                                                    alt="images" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -239,10 +237,10 @@ const Home: Component = () => {
                             <div class="slick-lancers">
                                 <div class="agents-grid">
                                     <div class="landscapes listing-item compact thehp-1" data-aos="fade-up"
-                                         data-aos-delay="150">
+                                        data-aos-delay="150">
                                         <a href="single-property-1.html" class="recent-16">
                                             <div class="recent-img16 img-fluid img-center"
-                                                 style="background-image: url(images/feature-properties/img3.jpg);"></div>
+                                                style="background-image: url(images/feature-properties/img3.jpg);"></div>
                                             <div class="recent-content"></div>
                                             <div class="listing-badges">
                                                 <span>For Sale</span>
@@ -251,9 +249,9 @@ const Home: Component = () => {
                                                 <div class="recent-title">Kamakis</div>
                                                 <div class="recent-price mb-3">$230,000</div>
                                                 <div class="house-details thehp-1"><i class="fa fa-bath mr-1"
-                                                                                      aria-hidden="true"></i>Water &
+                                                    aria-hidden="true"></i>Water &
                                                     Electricity<span>|</span><i class="fa fa-object-group mr-1"
-                                                                                aria-hidden="true"></i> 50 by 100
+                                                        aria-hidden="true"></i> 50 by 100
                                                 </div>
                                             </div>
                                             <div class="view-proper">View Details</div>
@@ -264,7 +262,7 @@ const Home: Component = () => {
                                     <div class="people listing-item compact thehp-1">
                                         <a href="single-property-1.html" class="recent-16">
                                             <div class="recent-img16 img-center"
-                                                 style="background-image: url(images/feature-properties/img4.jpg);"></div>
+                                                style="background-image: url(images/feature-properties/img4.jpg);"></div>
                                             <div class="recent-content"></div>
                                             <div class="listing-badges">
                                                 <span>For Sale</span>
@@ -273,9 +271,9 @@ const Home: Component = () => {
                                                 <div class="recent-title">Family Villas</div>
                                                 <div class="recent-price mb-3">$230,000</div>
                                                 <div class="house-details thehp-1"><i class="fa fa-bath mr-1"
-                                                                                      aria-hidden="true"></i>Water &
+                                                    aria-hidden="true"></i>Water &
                                                     Electricity<span>|</span><i class="fa fa-object-group mr-1"
-                                                                                aria-hidden="true"></i> 50 by 100
+                                                        aria-hidden="true"></i> 50 by 100
                                                 </div>
                                             </div>
                                             <div class="view-proper">View Details</div>
@@ -286,7 +284,7 @@ const Home: Component = () => {
                                     <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
                                         <a href="single-property-1.html" class="recent-16">
                                             <div class="recent-img16 img-center"
-                                                 style="background-image: url(images/feature-properties/img10.jpg);"></div>
+                                                style="background-image: url(images/feature-properties/img10.jpg);"></div>
                                             <div class="recent-content"></div>
                                             <div class="listing-badges">
                                                 <span>For Sale</span>
@@ -295,9 +293,9 @@ const Home: Component = () => {
                                                 <div class="recent-title">Villa Estate</div>
                                                 <div class="recent-price mb-3">$230,000</div>
                                                 <div class="house-details thehp-1"><i class="fa fa-bath mr-1"
-                                                                                      aria-hidden="true"></i>Water &
+                                                    aria-hidden="true"></i>Water &
                                                     Electricity<span>|</span><i class="fa fa-object-group mr-1"
-                                                                                aria-hidden="true"></i> 50 by 100
+                                                        aria-hidden="true"></i> 50 by 100
                                                 </div>
                                             </div>
                                             <div class="view-proper">View Details</div>
@@ -308,7 +306,7 @@ const Home: Component = () => {
                                     <div class="landscapes listing-item compact thehp-1">
                                         <a href="single-property-1.html" class="recent-16">
                                             <div class="recent-img16 img-center"
-                                                 style="background-image: url(images/interior/img5.jpg);"></div>
+                                                style="background-image: url(images/interior/img5.jpg);"></div>
                                             <div class="recent-content"></div>
                                             <div class="listing-badges">
                                                 <span>For Sale</span>
@@ -317,9 +315,9 @@ const Home: Component = () => {
                                                 <div class="recent-title">Luxury Condo</div>
                                                 <div class="recent-price mb-3">$230,000</div>
                                                 <div class="house-details thehp-1"><i class="fa fa-bath mr-1"
-                                                                                      aria-hidden="true"></i>Water &
+                                                    aria-hidden="true"></i>Water &
                                                     Electricity<span>|</span><i class="fa fa-object-group mr-1"
-                                                                                aria-hidden="true"></i> 50 by 100
+                                                        aria-hidden="true"></i> 50 by 100
                                                 </div>
                                             </div>
                                             <div class="view-proper">View Details</div>
@@ -330,7 +328,7 @@ const Home: Component = () => {
                                     <div class="people listing-item compact thehp-1">
                                         <a href="single-property-1.html" class="recent-16">
                                             <div class="recent-img16 img-center"
-                                                 style="background-image: url(images/interior/img11.jpg);"></div>
+                                                style="background-image: url(images/interior/img11.jpg);"></div>
                                             <div class="recent-content"></div>
                                             <div class="listing-badges">
                                                 <span>For Sale</span>
@@ -339,9 +337,9 @@ const Home: Component = () => {
                                                 <div class="recent-title">Luxury Villa</div>
                                                 <div class="recent-price mb-3">$230,000</div>
                                                 <div class="house-details thehp-1"><i class="fa fa-bath mr-1"
-                                                                                      aria-hidden="true"></i>Water &
+                                                    aria-hidden="true"></i>Water &
                                                     Electricity<span>|</span><i class="fa fa-object-group mr-1"
-                                                                                aria-hidden="true"></i> 50 by 100
+                                                        aria-hidden="true"></i> 50 by 100
                                                 </div>
                                             </div>
                                             <div class="view-proper">View Details</div>
@@ -373,13 +371,13 @@ const Home: Component = () => {
                                         <p>Nonec pede justo fringilla vel aliquet nec vulputate eget arcu in enim justo
                                             rhoncus ut imperdiet venenatis vitae justo.</p>
                                         <a class="text-base text-base-dark-hover text-size-13"
-                                           href="https://code-theme.com/html/findhouses/properties-full-list.html">Read
+                                            href="https://code-theme.com/html/findhouses/properties-full-list.html">Read
                                             More <i class="fa fa-long-arrow-right ml-2"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-12 m-top-40 m-bottom-40" data-aos="fade-up"
-                                 data-aos-delay="250">
+                                data-aos-delay="250">
                                 <div class="service bg-light-2 border-1 border-light box-shadow-1 box-shadow-2-hover">
                                     <div class="media">
                                         <i class="fas fa-building bg-base text-white rounded-100 box-shadow-1 p-top-5 p-bottom-5 p-right-5 p-left-5"></i>
@@ -389,13 +387,13 @@ const Home: Component = () => {
                                         <p>Nonec pede justo fringilla vel aliquet nec vulputate eget arcu in enim justo
                                             rhoncus ut imperdiet venenatis vitae justo.</p>
                                         <a class="text-base text-base-dark-hover text-size-13"
-                                           href="https://code-theme.com/html/findhouses/properties-full-list.html">Read
+                                            href="https://code-theme.com/html/findhouses/properties-full-list.html">Read
                                             More <i class="fa fa-long-arrow-right ml-2"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-12 m-top-40 m-bottom-40 commercial" data-aos="fade-up"
-                                 data-aos-delay="350">
+                                data-aos-delay="350">
                                 <div class="service bg-light-2 border-1 border-light box-shadow-1 box-shadow-2-hover">
                                     <div class="media">
                                         <i class="fas fa-warehouse bg-base text-white rounded-100 box-shadow-1 p-top-5 p-bottom-5 p-right-5 p-left-5"></i>
@@ -405,7 +403,7 @@ const Home: Component = () => {
                                         <p>Nonec pede justo fringilla vel aliquet nec vulputate eget arcu in enim justo
                                             rhoncus ut imperdiet venenatis vitae justo.</p>
                                         <a class="text-base text-base-dark-hover text-size-13"
-                                           href="https://code-theme.com/html/findhouses/properties-full-list.html">Read
+                                            href="https://code-theme.com/html/findhouses/properties-full-list.html">Read
                                             More <i class="fa fa-long-arrow-right ml-2"></i></a>
                                     </div>
                                 </div>
@@ -431,7 +429,7 @@ const Home: Component = () => {
                         <div class="owl-carousel style1">
                             <div class="test-1" data-aos="fade-up" data-aos-delay="150">
                                 <h3>Lisa Smith</h3>
-                                <img src="images/testimonials/ts-1.jpg" alt=""/>
+                                <img src="images/testimonials/ts-1.jpg" alt="" />
                                 <h6 class="mt-2">Nairobi</h6>
                                 <ul class="starts text-center mb-2">
                                     <li><i class="fa fa-star"></i>
@@ -450,7 +448,7 @@ const Home: Component = () => {
                             </div>
                             <div class="test-1" data-aos="fade-up" data-aos-delay="250">
                                 <h3>Jhon Morris</h3>
-                                <img src="images/testimonials/ts-2.jpg" alt=""/>
+                                <img src="images/testimonials/ts-2.jpg" alt="" />
                                 <h6 class="mt-2">Kiambu</h6>
                                 <ul class="starts text-center mb-2">
                                     <li><i class="fa fa-star"></i>
@@ -469,7 +467,7 @@ const Home: Component = () => {
                             </div>
                             <div class="test-1" data-aos="fade-up" data-aos-delay="350">
                                 <h3>Mary Deshaw</h3>
-                                <img src="images/testimonials/ts-3.jpg" alt=""/>
+                                <img src="images/testimonials/ts-3.jpg" alt="" />
                                 <h6 class="mt-2">Mombasa</h6>
                                 <ul class="starts text-center mb-2">
                                     <li><i class="fa fa-star"></i>
@@ -488,7 +486,7 @@ const Home: Component = () => {
                             </div>
                             <div class="test-1" data-aos="fade-up" data-aos-delay="450">
                                 <h3>Gary Steven</h3>
-                                <img src="images/testimonials/ts-4.jpg" alt=""/>
+                                <img src="images/testimonials/ts-4.jpg" alt="" />
                                 <h6 class="mt-2">Kisumu</h6>
                                 <ul class="starts text-center mb-2">
                                     <li><i class="fa fa-star"></i>
@@ -507,7 +505,7 @@ const Home: Component = () => {
                             </div>
                             <div class="test-1" data-aos="fade-up" data-aos-delay="550">
                                 <h3>Cristy Mayer</h3>
-                                <img src="images/testimonials/ts-5.jpg" alt=""/>
+                                <img src="images/testimonials/ts-5.jpg" alt="" />
                                 <h6 class="mt-2">Nakuru</h6>
                                 <ul class="starts text-center mb-2">
                                     <li><i class="fa fa-star"></i>
@@ -526,7 +524,7 @@ const Home: Component = () => {
                             </div>
                             <div class="test-1" data-aos="fade-up">
                                 <h3>Ichiro Tasaka</h3>
-                                <img src="images/testimonials/ts-6.jpg" alt=""/>
+                                <img src="images/testimonials/ts-6.jpg" alt="" />
                                 <h6 class="mt-2">Kilifi</h6>
                                 <ul class="starts text-center mb-2">
                                     <li><i class="fa fa-star"></i>
@@ -560,7 +558,7 @@ const Home: Component = () => {
                                 <div class="col-lg-3 col-md-6">
                                     <div class="netabout">
                                         <a href="index.html" class="logo">
-                                            <img src="images/logo-white-1.svg" alt="netcom"/>
+                                            <img src="images/logo-white-1.svg" alt="netcom" />
                                         </a>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt
                                             architecto soluta laboriosam, perspiciatis, aspernatur officiis esse.</p>
@@ -640,8 +638,8 @@ const Home: Component = () => {
                                         <label for="subscribeEmail" class="error"></label>
                                         <div class="email">
                                             <input type="email" id="subscribeEmail" name="EMAIL"
-                                                   placeholder="Enter Your Email"/>
-                                            <input type="submit" value="Subscribe"/>
+                                                placeholder="Enter Your Email" />
+                                            <input type="submit" value="Subscribe" />
                                             <p class="subscription-success"></p>
                                         </div>
                                     </form>
@@ -663,7 +661,7 @@ const Home: Component = () => {
                 </footer>
 
                 <a data-scroll href="index-13.html#wrapper" class="go-up"><i class="fa fa-angle-double-up"
-                                                                             aria-hidden="true"></i></a>
+                    aria-hidden="true"></i></a>
                 {/* END FOOTER */}
 
                 {/*register form */}
