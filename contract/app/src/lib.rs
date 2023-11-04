@@ -148,6 +148,7 @@ impl PropertySystem {
         for property_item in self.property.iter_mut() {
             if property_item.id == property_id {
                 property_item.owner = to_user.unwrap().account.clone();
+                property_item.is_available = false;
             }
         }
 
