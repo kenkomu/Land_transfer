@@ -2,9 +2,14 @@ import type {Component} from 'solid-js';
 
 const PropertyListings: Component = () => {
     return (
+       
         <div>
-all available properties
+
+<h1>
+    available
+</h1>
         </div>
+      
     )
 }
 
