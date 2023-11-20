@@ -68,6 +68,7 @@ async function fetchGreeting() {
     const currentGreeting = await wallet.viewMethod({ method: 'get_greeting', contractId: CONTRACT_ADDRESS });
 
     console.log("Greeting res "+ currentGreeting);
+    //
     // document.querySelectorAll('[data-behavior=greeting]').forEach(el => {
     //     el.innerText = currentGreeting;
     //     el.value = currentGreeting;
